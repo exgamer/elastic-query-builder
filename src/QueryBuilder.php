@@ -179,7 +179,7 @@ class QueryBuilder
         if (null !== $this->source && is_array($this->source)) {
             $result['_source'] = $this->source;
         }
-        
+
         $query = null;
         $filters = [];
         if (null !== $this->query) {
