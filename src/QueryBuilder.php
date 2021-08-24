@@ -149,7 +149,7 @@ class QueryBuilder
         }
 
         if ($query) {
-            $result['body']['query']['bool'][$query->getQueryType()]= $query;
+            $result['body']['query']['bool'][$this->query->getQueryType()]= $query;
         }
 
         if ($filters) {
