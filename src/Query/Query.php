@@ -22,10 +22,13 @@ abstract class Query implements QueryInterface
 
     /**
      * @param string $queryType
+     * @return Query
      */
     public function setQueryType($queryType)
     {
         $this->queryType = $queryType;
+
+        return $this;
     }
 
     /**
