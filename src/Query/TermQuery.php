@@ -15,6 +15,8 @@ class TermQuery extends Query
     /** @var array */
     protected $values = [];
 
+    protected $queryName = 'term';
+
     public function __construct(string $field = null, array $values = [])
     {
         $this->field = $field;
@@ -46,7 +48,7 @@ class TermQuery extends Query
 
 
         return [
-            'term' => [
+            $this->queryName => [
                 $this->field => $this->values,
             ],
         ];
