@@ -1,0 +1,26 @@
+{
+    "name": "citizenzet/elastic-query-builder",
+    "license": "MIT",
+    "type": "library",
+    "description": "package under development",
+    "require": {
+        "php": "^7.3"
+    },
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Olzhas Kulzhambekov",
+            "email": "exgamer@live.ru"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Citizenzet\\ElasticQueryBuilder\\": "src"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.0-dev"
+        }
+    }
+}

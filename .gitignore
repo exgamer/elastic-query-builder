@@ -1,0 +1,30 @@
+/node_modules
+/public/hot
+/public/yml
+/public/storage
+/storage/*.key
+/vendor
+/.env
+.env.backup
+!*/.env
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
