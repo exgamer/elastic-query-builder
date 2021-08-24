@@ -45,6 +45,13 @@ class QueryBuilder
      * @var array
      */
     private $filters = [];
+
+    /**
+     * sorting array
+     *
+     * @var array
+     */
+    private $sorting = [];
     
     /**
      * @return string|null
@@ -120,6 +127,20 @@ class QueryBuilder
         return $this;
     }
 
+    /**
+     * add sorting
+     *
+     * @param $key
+     * @param string $sort
+     * @return QueryBuilder
+     */
+    public function addSorting($key, $sort= "asc"): self
+    {
+        $this->sorting[$key] = $sort;
+
+        return $this;
+    }
+
     public function build(): array
     {
         $result = [];
@@ -153,6 +174,12 @@ class QueryBuilder
 
         if ($filters) {
             $result['body']['query']['bool']['filter'] = $filters;
+        }
+
+        if ($this->sorting) {
+            foreach ($this->sorting as $k => $v) {
+                $result['body']['sort'][$k] = $v;
+            }
         }
 
         return $result;

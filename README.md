@@ -15,5 +15,6 @@
         );
         $query->addFilter((new TermsQuery())->setField("features_values.Внутренний материал")->setValues(["байка"]));
         $query->addFilter((new TermsQuery())->setField("categories")->setValues([2879]));
+        $query->addSorting("_id", "desc");
         $response = $client->search($query->build());
 ```
