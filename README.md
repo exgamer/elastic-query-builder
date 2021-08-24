@@ -6,6 +6,7 @@
         $query->setIndex("_my_index");
         $query->setSize(10);
         $query->setFrom(0);
+        $query->setSource(["title", "categories"]);
         $query->setQuery((new MultiMatchQuery())->setQuery("Oko Plus")->setFields(['title'])->setFuzziness(1));
         $query->addFilter(
             (new NestedQuery())->setNestedPath("features_values")
