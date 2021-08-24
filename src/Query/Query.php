@@ -19,6 +19,20 @@ abstract class Query implements QueryInterface
      */
     protected $queryType = self::MUST_TYPE;
 
+    public function must()
+    {
+        $this->queryType = self::MUST_TYPE;
+
+        return $this;
+    }
+
+    public function should()
+    {
+        $this->queryType = self::SHOULD_TYPE;
+
+        return $this;
+    }
+    
     /**
      * @param string $queryType
      * @return Query
