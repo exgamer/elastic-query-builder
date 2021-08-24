@@ -1,6 +1,8 @@
 <?php
 namespace Citizenzet\ElasticQueryBuilder\Query;
 
+use Citizenzet\ElasticQueryBuilder\Exceptions\QueryException;
+
 /**
  * Nested query
  *
@@ -28,6 +30,10 @@ class NestedQuery extends Query
 
     public function build(): array
     {
+        if (empty($this->query)) {
+            throw new QueryException('Empty query user addQuery '.__CLASS__);
+        }
+        
         $q = [];
         foreach ($this->query as $query) {
             $q[] = $query->build();
