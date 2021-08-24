@@ -8,21 +8,10 @@ namespace Citizenzet\ElasticQueryBuilder\Query;
  * @package Jmart\Core\Elastic\Query
  * @author Olzhas Kulzhambekov <exgamer@live.ru>
  */
-class NestedQuery implements QueryInterface
+class NestedQuery extends Query
 {
     protected $path;
     protected $query;
-    protected $type = "must";
-
-    /**
-     * @param mixed $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
 
     public function setNestedPath(string $path)
     {
@@ -50,7 +39,7 @@ class NestedQuery implements QueryInterface
                 'path' => $this->path,
                 'query' => [
                     'bool' => [
-                        $this->type => $q,
+                        $this->queryType => $q,
                     ],
                 ]
             ],

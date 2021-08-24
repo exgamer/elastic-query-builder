@@ -8,7 +8,7 @@ use Citizenzet\ElasticQueryBuilder\Exceptions\QueryException;
  * @package Jmart\Core\Elastic\Query
  * @author Olzhas Kulzhambekov <exgamer@live.ru>
  */
-class TermsQuery implements QueryInterface
+class TermsQuery extends Query
 {
     /** @var string */
     protected $field;

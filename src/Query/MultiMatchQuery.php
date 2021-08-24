@@ -10,7 +10,7 @@ use Citizenzet\ElasticQueryBuilder\Exceptions\QueryException;
  * @package Jmart\Core\Elastic\Query
  * @author Olzhas Kulzhambekov <exgamer@live.ru>
  */
-class MultiMatchQuery implements QueryInterface
+class MultiMatchQuery extends Query
 {
     /**
      * search fields array

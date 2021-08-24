@@ -148,20 +148,13 @@ class QueryBuilder
             }
         }
 
-        if (($query && ! empty($filters))) {
-
-        }else{
-
-        }
-
         if ($query) {
-            $result['body']['query']['bool']['must']= $query;
+            $result['body']['query']['bool'][$query->getQueryType()]= $query;
         }
 
-        $result['body']['query']['bool']['filter']= $filters;
-
-//        d($query);
-//        d($result);
+        if ($filters) {
+            $result['body']['query']['bool']['filter'] = $filters;
+        }
 
         return $result;
     }
