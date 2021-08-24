@@ -1,4 +1,3 @@
-
 <?php
 namespace Citizenzet\ElasticQueryBuilder\Query;
 
