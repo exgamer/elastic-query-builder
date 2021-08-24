@@ -33,6 +33,13 @@ class QueryBuilder
     private $size;
 
     /**
+     * source fields
+     *
+     * @var array
+     */
+    private $source;
+
+    /**
      * queries array
      *
      * @var QueryInterface
@@ -115,6 +122,19 @@ class QueryBuilder
     }
 
     /**
+     * set source fields
+     *
+     * @param array $source
+     * @return QueryBuilder
+     */
+    public function setSource(array $source)
+    {
+        $this->source = $source;
+
+        return $this;
+    }
+
+    /**
      * add filter
      *
      * @param QueryInterface $filter
@@ -156,6 +176,10 @@ class QueryBuilder
             $result['size'] = $this->size;
         }
 
+        if (null !== $this->source && is_array($this->source)) {
+            $result['_source'] = $this->source;
+        }
+        
         $query = null;
         $filters = [];
         if (null !== $this->query) {
