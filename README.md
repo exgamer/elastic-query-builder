@@ -13,6 +13,7 @@
                 ->addQuery((new TermsQuery())->setField("features_values.Материал рамы")->setValues(["сталь"]))
                 ->addQuery((new TermsQuery())->setField("features_values.Сиденье")->setValues(["без спинки", "со спинкой"]))
         );
+        $query->addFilter((new TermsQuery())->setField("features_values.Внутренний материал")->setValues(["байка"]));
         $query->addFilter((new TermsQuery())->setField("categories")->setValues([2879]));
         $response = $client->search($query->build());
 ```

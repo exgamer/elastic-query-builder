@@ -33,7 +33,7 @@ class NestedQuery extends Query
         if (empty($this->query)) {
             throw new QueryException('Empty query user addQuery '.__CLASS__);
         }
-        
+
         $q = [];
         foreach ($this->query as $query) {
             $q[] = $query->build();
