@@ -9,7 +9,7 @@
         $query->setQuery((new MultiMatchQuery())->setQuery("Oko Plus")->setFields(['title'])->setFuzziness(1));
         $query->addFilter(
             (new NestedQuery())->setNestedPath("features_values")
-                ->setType("should")
+                ->should()
                 ->addQuery((new TermsQuery())->setField("features_values.Материал рамы")->setValues(["сталь"]))
                 ->addQuery((new TermsQuery())->setField("features_values.Сиденье")->setValues(["без спинки", "со спинкой"]))
         );

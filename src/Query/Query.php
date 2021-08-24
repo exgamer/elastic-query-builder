@@ -32,7 +32,7 @@ abstract class Query implements QueryInterface
 
         return $this;
     }
-    
+
     /**
      * @param string $queryType
      * @return Query
