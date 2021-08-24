@@ -7,7 +7,6 @@ use Citizenzet\ElasticQueryBuilder\Query\QueryInterface;
  * Query Builder for elastic
  *
  * Class QueryBuilder
- * @package Jmart\Core\Elastic
  * @author Olzhas Kulzhambekov <exgamer@live.ru>
  */
 class QueryBuilder

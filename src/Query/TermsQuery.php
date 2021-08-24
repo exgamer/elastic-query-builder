@@ -5,7 +5,6 @@ use Citizenzet\ElasticQueryBuilder\Exceptions\QueryException;
 
 /**
  * Class TermsQuery
- * @package Jmart\Core\Elastic\Query
  * @author Olzhas Kulzhambekov <exgamer@live.ru>
  */
 class TermsQuery extends Query

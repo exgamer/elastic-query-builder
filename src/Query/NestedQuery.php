@@ -5,7 +5,6 @@ namespace Citizenzet\ElasticQueryBuilder\Query;
  * Nested query
  *
  * Class NestedQuery
- * @package Jmart\Core\Elastic\Query
  * @author Olzhas Kulzhambekov <exgamer@live.ru>
  */
 class NestedQuery extends Query

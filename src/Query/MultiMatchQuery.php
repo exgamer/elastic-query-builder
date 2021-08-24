@@ -7,7 +7,6 @@ use Citizenzet\ElasticQueryBuilder\Exceptions\QueryException;
  * Multimatch query for elastic search
  *
  * Class MultiMatchQuery
- * @package Jmart\Core\Elastic\Query
  * @author Olzhas Kulzhambekov <exgamer@live.ru>
  */
 class MultiMatchQuery extends Query
