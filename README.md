@@ -35,6 +35,9 @@
          // минимальное значение
         $query->addAggregation((new MinAggregation("max_price"))->setField('price')); 
         
+        $query->addAggregation((new NestedAggregation("features"))->setNestedPath('features')->setAggregation(
+            (new TermsAggregation("fffff"))->setField("features.1")->setSize(20))
+        );
         
         $response = $client->search($query->build());
 ```
