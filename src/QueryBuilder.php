@@ -1,6 +1,7 @@
 <?php
 namespace Citizenzet\ElasticQueryBuilder;
 
+use Citizenzet\ElasticQueryBuilder\Aggregation\Aggregation;
 use Citizenzet\ElasticQueryBuilder\Query\QueryInterface;
 
 /**
@@ -59,7 +60,14 @@ class QueryBuilder
      * @var array
      */
     private $sorting = [];
-    
+
+    /**
+     * aggregations array
+     *
+     * @var array
+     */
+    private $aggregations = [];
+
     /**
      * @return string|null
      */
@@ -161,6 +169,19 @@ class QueryBuilder
         return $this;
     }
 
+    /**
+     * add aggregation
+     *
+     * @param Aggregation $aggregation
+     * @return QueryBuilder
+     */
+    public function addAggregation(Aggregation $aggregation): self
+    {
+        $this->aggregations[] = $aggregation;
+
+        return $this;
+    }
+
     public function build(): array
     {
         $result = [];
@@ -178,6 +199,13 @@ class QueryBuilder
 
         if (null !== $this->source && is_array($this->source)) {
             $result['_source'] = $this->source;
+        }
+
+        if (!empty($this->aggregations)) {
+            $result['body']['aggs'] = [];
+            foreach ($this->aggregations as $aggregation) {
+                $result['body']['aggs'][$aggregation->getName()] = $aggregation->buildRecursivly();
+            }
         }
 
         $query = null;

@@ -17,5 +17,6 @@
         $query->addFilter((new TermsQuery())->setField("features_values.Внутренний материал")->setValues(["байка"]));
         $query->addFilter((new TermsQuery())->setField("categories")->setValues([2879]));
         $query->addSorting("_id", "desc");
+        $query->addAggregation((new SumAggregation("test_sum"))->setField('count'));
         $response = $client->search($query->build());
 ```
