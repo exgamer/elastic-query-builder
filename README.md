@@ -12,7 +12,8 @@
         $query->setSource(['title', "categories", 'features_values.Материал рамы']);  
         
         //Запрос
-        $query->setQuery((new MultiMatchQuery())->setQuery("Oko Plus")->setFields(['title'])->setFuzziness(1));
+        // поиск по строке
+        $query->setQuery((new MultiMatchQuery())->setQuery("Oko Plus")->setFields(['title'])->setFuzziness(1)); 
         
         //ФИльтрация
         $query->addFilter(
