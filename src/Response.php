@@ -53,6 +53,23 @@ class Response
         return $instance;
     }
 
+
+    /**
+     * Returns array of result ids
+     *
+     * @param $name
+     * @return array
+     */
+    public function getIds()
+    {
+        $result = [];
+        foreach ($this->hits as $value) {
+            $result[] = $value['_id'];
+        }
+
+        return $result;
+    }
+    
     /**
      * Returns array of source by key
      *
