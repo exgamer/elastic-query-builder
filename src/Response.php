@@ -69,7 +69,7 @@ class Response
 
         return $result;
     }
-    
+
     /**
      * Returns array of source by key
      *

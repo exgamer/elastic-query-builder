@@ -41,4 +41,8 @@
         );
         
         $response = $client->search($query->build());
+        
+        $r = Response::instance($response);
+        $productCodes = $r->getSourceKeyAsArray("code");
+        $productIds = $r->getIds();
 ```
